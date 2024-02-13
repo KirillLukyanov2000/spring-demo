@@ -6,14 +6,17 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ru.lukyanov.springdemo.config.AppConfig;
+import ru.lukyanov.springdemo.entity.Person;
 
 @SpringBootApplication
 public class SpringDemoApplication {
 
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
-        SpringApplication.run(SpringDemoApplication.class, args);
-        applicationContext.registerShutdownHook();
+        ConfigurableApplicationContext context = SpringApplication.run(SpringDemoApplication.class, args);
+        Person person = context.getBean("personBean", Person.class);
+
+
     }
 
 }
+
