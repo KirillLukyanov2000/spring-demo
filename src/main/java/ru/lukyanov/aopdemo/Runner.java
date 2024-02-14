@@ -15,6 +15,8 @@ public class Runner {
         library.getBook();
         ChildrenLibrary childrenLibrary = context.getBean("childrenLibraryBean", ChildrenLibrary.class);
         childrenLibrary.getBook();
+        childrenLibrary.returnBook("Tom Sayer");
+        library.returnBook();
 
         context.registerShutdownHook();
     }

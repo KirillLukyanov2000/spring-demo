@@ -1,5 +1,6 @@
 package ru.lukyanov.aopdemo.aspects;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
@@ -22,5 +23,11 @@ public class LoggingAspect {
     @AfterReturning("execution(public void ru.lukyanov.aopdemo.entity.Library.getBook() throws ru.lukyanov.aopdemo.exceptions.NoBookException)")
     public void afterGetBookAdvice(JoinPoint joinPoint) {
         log.warn("afterGetBookAdvice: the Book was taken after " + joinPoint.toShortString());
+    }
+
+    @SneakyThrows
+    @Before("execution(* return*(String || int, ..))")
+    public void beforeReturnWithNameAdvice(JoinPoint joinPoint) {
+        log.warn("beforeGetBookWithNameAdvice: trying to return the Book with name from " + joinPoint.getTarget().getClass().getSimpleName());
     }
 }
