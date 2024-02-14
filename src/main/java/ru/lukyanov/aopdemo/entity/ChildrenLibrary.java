@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component("childrenLibraryBean")
 public class ChildrenLibrary extends AbstractLibrary {
-    private String name;
+    private String bookName;
 
-    public ChildrenLibrary(@Value("Tom Sayer") String name) {
-        this.name = name;
+    public ChildrenLibrary(@Value("Tom Sayer") String bookName) {
+        this.bookName = bookName;
     }
 
     @Override
@@ -22,11 +22,11 @@ public class ChildrenLibrary extends AbstractLibrary {
         log.info("Returning book " + name);
     }
 
-    public String getName() {
-        return name;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 }

@@ -2,10 +2,15 @@ package ru.lukyanov.aopdemo.aspects;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
+import ru.lukyanov.aopdemo.entity.Library;
 
+@Order(10)
 @Slf4j
 @Aspect
 @Component
@@ -16,8 +21,11 @@ public class SecurityAspect {
         log.warn("beforeSecurityAdvice: checking authentication " + joinPoint.getKind());
     }
 
-    @Before("ru.lukyanov.aopdemo.aspects.pointcuts.LibraryPointcut.errorPointcut()")
-    public void beforeErrorSecurityAdvice() {
-        log.error("Error log before returning the book");
+    @Around("ru.lukyanov.aopdemo.aspects.pointcuts.LibraryPointcut.errorPointcut()")
+    public Library beforeErrorSecurityAdvice(ProceedingJoinPoint joinPoint) {
+        Library library = (Library) joinPoint.getTarget();
+        library.returnBook();
+        log.error("Error log instead of returning the book from {}, number {}", library.getName(), library.getNumber());
+        return library;
     }
 }

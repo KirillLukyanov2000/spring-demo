@@ -17,6 +17,7 @@ public class Runner {
         childrenLibrary.getBook();
         childrenLibrary.returnBook("Tom Sayer");
         library.returnBook();
+        library.isFavoriteLibrary();
 
         context.registerShutdownHook();
     }
