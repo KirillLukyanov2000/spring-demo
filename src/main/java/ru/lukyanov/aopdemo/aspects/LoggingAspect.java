@@ -3,7 +3,9 @@ package ru.lukyanov.aopdemo.aspects;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.reflect.MethodSignature;
@@ -50,5 +52,16 @@ public class LoggingAspect {
     public void afterReturningCreateLibraryAdvice(JoinPoint joinPoint, Boolean isFavLib) {
         Boolean changeTheAnswer = !isFavLib;
         log.warn("Is this library your favorite after Advice interception? {}", changeTheAnswer);
+    }
+    @Around("ru.lukyanov.aopdemo.aspects.pointcuts.LibraryPointcut.checkingMethodWorkTimeAdvice()")
+    public void checkTimeExecutionAdvice(ProceedingJoinPoint joinPoint) {
+        long timeInMillis1 = System.currentTimeMillis();
+        try {
+            joinPoint.proceed();
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+        long timeInMillis2 = System.currentTimeMillis();
+        log.info("Execution of the method took: {} ms", timeInMillis2 - timeInMillis1);
     }
 }

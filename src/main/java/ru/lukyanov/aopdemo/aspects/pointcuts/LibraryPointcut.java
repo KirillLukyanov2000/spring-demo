@@ -14,6 +14,12 @@ public class LibraryPointcut {
     @Pointcut("anyGetMethodPointcut() && errorPointcut()")
     public void allGetAndErrorPointcut() {
     }
+
     @Pointcut("execution(* throwingTestException())")
-    public void DivByZeroPointcut() {}
+    public void DivByZeroPointcut() {
+    }
+
+    @Pointcut("execution(* checkinTimeInMillis(..))")
+    public void checkingMethodWorkTimeAdvice() {
+    }
 }

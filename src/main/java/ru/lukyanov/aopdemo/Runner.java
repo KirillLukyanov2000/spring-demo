@@ -25,7 +25,9 @@ public class Runner {
         } catch (ArithmeticException e) {
             log.error("ArithmeticException caught in main method.");
         }
+        childrenLibrary.checkinTimeInMillis(55, 10000);
 
         context.registerShutdownHook();
+        log.info("Method main completed");
     }
 }

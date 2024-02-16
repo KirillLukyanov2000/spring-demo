@@ -29,6 +29,7 @@ public class SecurityAspect {
         log.error("Error log instead of returning the book from {}, number {}", library.getName(), library.getNumber());
         return library;
     }
+
     @AfterThrowing(pointcut = "ru.lukyanov.aopdemo.aspects.pointcuts.LibraryPointcut.DivByZeroPointcut()", throwing = "exc")
     public void afterThrowingExcDivByZeroPointcut(JoinPoint joinPoint, Throwable exc) {
         String excMessage = exc.getMessage();

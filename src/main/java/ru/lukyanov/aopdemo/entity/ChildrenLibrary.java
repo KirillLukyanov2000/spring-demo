@@ -28,6 +28,13 @@ public class ChildrenLibrary extends AbstractLibrary {
 
     }
 
+    public void checkinTimeInMillis(int a, int b) {
+        int c = 0;
+        for (int i = 0; i < b; i++) {
+            c *= a;
+        }
+    }
+
     public String getBookName() {
         return bookName;
     }
