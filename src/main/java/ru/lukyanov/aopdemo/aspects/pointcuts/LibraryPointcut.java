@@ -14,4 +14,6 @@ public class LibraryPointcut {
     @Pointcut("anyGetMethodPointcut() && errorPointcut()")
     public void allGetAndErrorPointcut() {
     }
+    @Pointcut("execution(* throwingTestException())")
+    public void DivByZeroPointcut() {}
 }

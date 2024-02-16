@@ -47,8 +47,8 @@ public class LoggingAspect {
     }
 
     @AfterReturning(pointcut = "execution(* is*())", returning = "isFavLib")
-    public void afterReturningCreateLibraryAdvice(Boolean isFavLib, JoinPoint joinPoint) {
-        boolean changeTheAnswer = !isFavLib;
+    public void afterReturningCreateLibraryAdvice(JoinPoint joinPoint, Boolean isFavLib) {
+        Boolean changeTheAnswer = !isFavLib;
         log.warn("Is this library your favorite after Advice interception? {}", changeTheAnswer);
     }
 }

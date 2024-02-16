@@ -22,6 +22,12 @@ public class ChildrenLibrary extends AbstractLibrary {
         log.info("Returning book " + name);
     }
 
+    public void throwingTestException() throws ArithmeticException {
+
+        int a = 1 / 0;
+
+    }
+
     public String getBookName() {
         return bookName;
     }
