@@ -16,8 +16,6 @@ public class SpringDemoApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringDemoApplication.class, args);
         Person person = context.getBean("personBean", Person.class);
-        Employee employee = new Employee("aa","bb","cc",1);
-
 
     }
 

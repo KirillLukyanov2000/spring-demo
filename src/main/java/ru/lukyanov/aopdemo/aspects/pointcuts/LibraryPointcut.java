@@ -3,6 +3,7 @@ package ru.lukyanov.aopdemo.aspects.pointcuts;
 import org.aspectj.lang.annotation.Pointcut;
 
 public class LibraryPointcut {
+
     @Pointcut("execution(* get*())")
     public void anyGetMethodPointcut() {
     }

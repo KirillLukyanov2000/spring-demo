@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Scope("singleton")
 public class PersonService {
+
     @PostConstruct
     public void init() {
         log.info("Bean PersonService initiated");

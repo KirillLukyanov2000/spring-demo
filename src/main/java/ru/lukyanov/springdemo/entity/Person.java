@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Component("personBean")
 @Scope("prototype")
 public class Person {
+
     @Value("${person.name}")
     private String name;
     @Value("${person.age}")

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component("childrenLibraryBean")
 public class ChildrenLibrary extends AbstractLibrary {
+
     private String bookName;
 
     public ChildrenLibrary(@Value("Tom Sayer") String bookName) {

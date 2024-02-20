@@ -12,6 +12,7 @@ import lombok.experimental.FieldDefaults;
 @Entity
 @Table(name = "employees")
 public class Employee {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
