@@ -1,24 +1,25 @@
 package ru.lukyanov.g11ndemo;
 
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 public enum ResourceManager {
 
-  INSTANCE;
+    INSTANCE;
 
-  public static final String BASENAME = "lang";
-  private ResourceBundle resourceBundle;
+    public static final String BASENAME = "lang";
+    private ResourceBundle resourceBundle;
 
-  ResourceManager() {
-    setLocale(Locale.getDefault());
-  }
+    ResourceManager() {
+        setLocale(Locale.getDefault());
+    }
 
-  public void setLocale(Locale locale) {
-    this.resourceBundle = ResourceBundle.getBundle(BASENAME, locale);
-  }
+    public void setLocale(Locale locale) {
+        this.resourceBundle = ResourceBundle.getBundle(BASENAME, locale);
+    }
 
-  public String getResKey(String key) {
-    return resourceBundle.getString(key);
-  }
-   
+    public String getResKey(String key) {
+        return resourceBundle.getString(key);
+    }
+
 }

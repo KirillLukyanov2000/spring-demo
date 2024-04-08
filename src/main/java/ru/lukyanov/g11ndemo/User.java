@@ -1,8 +1,7 @@
-package ru.lukyanov.g11ndemo
+package ru.lukyanov.g11ndemo;
 
-public interface Message {
+public interface User {
 
-  String FIRST_NAME = "user.firstname";
-  String LAST_NAME = "user.lastname";
-  
+    String FIRST_NAME = "user.firstname";
+    String LAST_NAME = "user.lastname";
 }
